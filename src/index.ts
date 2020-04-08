@@ -43,7 +43,7 @@ export default class Progress {
     const now = Date.now()
     if (this.lastReportedProgress < progress
         || (this.options.interval > 0 && (now - this.lastTime) > this.options.interval )) {
-      console.log(`${progress}%`)
+      console.log(`${progress}%`) // tslint:disable-line:no-console
       this.lastReportedProgress = progress
       this.lastTime = now
     }
