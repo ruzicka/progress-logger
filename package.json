@@ -1,0 +1,51 @@
+{
+  "name": "progress-logger",
+  "version": "0.1.0",
+  "description": "Logs progress to console",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "compile": "tsc",
+    "prepublishOnly": "tsc && npm run lint && npm test",
+    "lint": "tslint --project tsconfig.json",
+    "lint:fix": "tslint --project tsconfig.json --fix",
+    "test": "tsc && jest",
+    "test:coverage": "tsc && jest --coverage",
+    "test:coveralls": "tsc && jest --coverage --coverageReporters=text-lcov && cat ./coverage/lcov.info | coveralls"
+  },
+  "author": "David Ruzicka",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruzicka/progress-logger.git"
+  },
+  "keywords": [
+    "log",
+    "cli",
+    "progress",
+    "console"
+  ],
+  "bugs": {
+    "url": "https://github.com/ruzicka/progress-logger/issues"
+  },
+  "homepage": "https://github.com/ruzicka/progress-logger#readme",
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "coveralls": "^3.0.11",
+    "jest": "^25.3.0",
+    "ts-jest": "^25.3.1",
+    "tslint": "^6.1.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "typescript": "^3.8.3"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts"
+  ]
+}
