@@ -20,15 +20,15 @@ describe('Progress', () => {
 
       progress.log()
       expect(fn.mock.calls.length).toBe(1)
-      expect(fn.mock.calls[0][0]).toBe('10%')
+      expect(fn.mock.calls[0][0]).toBe('10% - 1/10, ETA: -')
 
       progress.log()
       expect(fn.mock.calls.length).toBe(2)
-      expect(fn.mock.calls[1][0]).toBe('20%')
+      expect(fn.mock.calls[1][0].startsWith('20% - 2/10, ETA: ')).toEqual(true)
 
       progress.log(3)
       expect(fn.mock.calls.length).toBe(3)
-      expect(fn.mock.calls[2][0]).toBe('50%')
+      expect(fn.mock.calls[2][0].startsWith('50% - 5/10, ETA: ')).toEqual(true)
 
       console.log = backup
     })
@@ -41,14 +41,14 @@ describe('Progress', () => {
 
       progress.log()
       expect(fn.mock.calls.length).toBe(1)
-      expect(fn.mock.calls[0][0]).toBe('0%')
+      expect(fn.mock.calls[0][0]).toBe('0% - 1/300, ETA: -')
 
       progress.log()
       expect(fn.mock.calls.length).toBe(1)
 
       progress.log()
       expect(fn.mock.calls.length).toBe(2)
-      expect(fn.mock.calls[1][0]).toBe('1%')
+      expect(fn.mock.calls[1][0].startsWith('1% - 3/300, ETA:')).toEqual(true)
 
       console.log = backup
     })
